@@ -20,19 +20,20 @@ import celularParaLaptopAmarela from "./assets/images/celular_para_laptop_em_ama
 import laptopParaCelularAmarela from "./assets/images/laptop_para_celular_em_amarela.png";
 import notebookParaTabletVermelha from "./assets/images/notebook_para_tablet_em_vermelha.png";
 import tabletParaNotebookVermelha from "./assets/images/tablet_para_notebook_em_vermelha.png";
+import roteadorAmarelo from "./assets/images/roteador_amarelo.png";
+import roteadorVermelho from "./assets/images/roteador_vermelho.png";
+import dhcpConfigBlue from "./assets/images/servidor_dhcp.png";
+import dnsConfigBlue from "./assets/images/servidor_dns.png";
+import smtpConfigBlue from "./assets/images/servidor_smtp.png";
 import {Gallery} from "./components/Gallery";
+import {ImageEnhanced} from "./components/ImageEnhanced";
+import { ZoomGallery } from './components/ZoomGallery';
 
 const Presentation = () => (
     <Deck template={() => <DefaultTemplate />}>
         <Slide>
             <FlexBox height="100%">
                 <Heading>Redes - Modelo WAN ( Packat Tracer )</Heading>
-            </FlexBox>
-        </Slide>
-        <Slide>
-            <FlexBox height="100%">
-                <Heading fontSize="h2">Made with</Heading>
-                <SpectacleLogo size={300} />
             </FlexBox>
         </Slide>
         <Slide>
@@ -228,7 +229,84 @@ const Presentation = () => (
                 />
             </FlexBox>
         </Slide>
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                height="100%"
+                padding="2em"
+            >
+                <Heading fontSize="48px" color="primary" textAlign="center">
+                    Configuração de Roteadores
+                </Heading>
+                <FlexBox
+                    width="100%"
+                    flex="1"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    marginTop="2em"
+                >
+                    <FlexBox flex="1" justifyContent="flex-start" alignItems="center" padding="0 2em">
+                        <ImageEnhanced
+                            src={roteadorAmarelo}
+                            alt="Config Router A"
+                            label="Rede Amarela"
+                            labelPosition="bottom"
+                            maxWidth="80%"
+                        />
+                    </FlexBox>
 
+                    <FlexBox flex="1" justifyContent="flex-end" alignItems="center" padding="0 2em">
+                        <ImageEnhanced
+                            src={roteadorVermelho}
+                            alt="Config Router B"
+                            label="Rede Vermelha"
+                            labelPosition="bottom"
+                            maxWidth="80%"
+                        />
+                    </FlexBox>
+                </FlexBox>
+            </FlexBox>
+        </Slide>
+
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                height="100%"
+                padding="2em"
+            >
+                <Heading fontSize="48px" color="primary" textAlign="center">
+                    Serviços – Rede Azul
+                </Heading>
+
+                <ZoomGallery zoomScale={2.0} shrinkScale={0.75} duration={400} easing="ease">
+                    <ImageEnhanced
+                        src={dhcpConfigBlue}
+                        alt="Configuração DHCP Rede Azul"
+                        label="DHCP (Gateway Default)"
+                        labelPosition="bottom"
+                        maxWidth="80%"
+                    />
+                    <ImageEnhanced
+                        src={dnsConfigBlue}
+                        alt="Configuração DNS Rede Azul"
+                        label="DNS"
+                        labelPosition="bottom"
+                        maxWidth="80%"
+                    />
+                    <ImageEnhanced
+                        src={smtpConfigBlue}
+                        alt="Configuração SMTP Rede Azul"
+                        label="SMTP"
+                        labelPosition="bottom"
+                        maxWidth="80%"
+                    />
+                </ZoomGallery>
+            </FlexBox>
+        </Slide>
     </Deck>
 );
 
