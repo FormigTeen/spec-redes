@@ -85,9 +85,9 @@ const Presentation = () => (
                         color="secondary"
                         style={{ listStyleType: "none", padding: 0 }}
                     >
-                        <ListItem margin="0.5em 0">Matheus Freitas</ListItem>
-                        <ListItem margin="0.5em 0">Otávio</ListItem>
-                        <ListItem margin="0.5em 0">Gabriela</ListItem>
+                        <ListItem margin="0.5em 0">Matheus S Freitas</ListItem>
+                        <ListItem margin="0.5em 0">Otávio Augusto</ListItem>
+                        <ListItem margin="0.5em 0">Luz</ListItem>
                     </UnorderedList>
                 </FlexBox>
 
