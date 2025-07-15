@@ -18,6 +18,7 @@ import vermelha from "./assets/images/vermelha.png"
 import azul from "./assets/images/azul.png"
 import celularParaLaptopAmarela from "./assets/images/celular_para_laptop_em_amarela.png";
 import laptopParaCelularAmarela from "./assets/images/laptop_para_celular_em_amarela.png";
+import testeSmtpPop from "./assets/images/teste_smtp_pop.png";
 import notebookParaTabletVermelha from "./assets/images/notebook_para_tablet_em_vermelha.png";
 import tabletParaNotebookVermelha from "./assets/images/tablet_para_notebook_em_vermelha.png";
 import roteadorAmarelo from "./assets/images/roteador_amarelo.png";
@@ -25,6 +26,11 @@ import roteadorVermelho from "./assets/images/roteador_vermelho.png";
 import dhcpConfigBlue from "./assets/images/servidor_dhcp.png";
 import dnsConfigBlue from "./assets/images/servidor_dns.png";
 import smtpConfigBlue from "./assets/images/servidor_smtp.png";
+import testeDnsRedeVermelha from "./assets/images/teste_dns_rede_vermelha.png";
+import testeHttpRedeVermelha from "./assets/images/teste_http_rede_vermelha.png";
+import testeAcessoHttpLocal from "./assets/images/teste_acesso_http_local.png";
+import ipRoteadorAmarelo from "./assets/images/ip_roteador_amarelo.png";
+import natRoteadorAmarelo from "./assets/images/nat_roteador_amarelo.png";
 import {Gallery} from "./components/Gallery";
 import {ImageEnhanced} from "./components/ImageEnhanced";
 import { ZoomGallery } from './components/ZoomGallery';
@@ -56,6 +62,47 @@ const Presentation = () => (
                 <Text fontSize="24px" color="secondary">
                     Rede composto por 1 WAN e 2 LANs, com roteadores e switches conectados.
                 </Text>
+            </FlexBox>
+        </Slide>
+        <Slide>
+            <FlexBox
+                flexDirection="row"
+                alignItems="center"          // centraliza verticalmente
+                justifyContent="space-between"
+                height="100%"
+                padding="20em"
+            >
+                {/* Coluna da lista */}
+                <FlexBox
+                    flex="1"
+                    flexDirection="column"
+                    alignItems="flex-start"     // alinha o texto à esquerda
+                    justifyContent="center"     // centraliza verticalmente
+                    height="100%"
+                >
+                    <UnorderedList
+                        fontSize="24px"
+                        color="secondary"
+                        style={{ listStyleType: "none", padding: 0 }}
+                    >
+                        <ListItem margin="0.5em 0">Matheus Freitas</ListItem>
+                        <ListItem margin="0.5em 0">Otávio</ListItem>
+                        <ListItem margin="0.5em 0">Gabriela</ListItem>
+                    </UnorderedList>
+                </FlexBox>
+
+                {/* Coluna do título */}
+                <FlexBox
+                    flex="1"
+                    flexDirection="column"
+                    alignItems="flex-end"       // alinha o texto à direita
+                    justifyContent="center"     // centraliza verticalmente
+                    height="100%"
+                >
+                    <Heading fontSize="48px" color="primary" textAlign="right">
+                        Equipe
+                    </Heading>
+                </FlexBox>
             </FlexBox>
         </Slide>
         <Slide>
@@ -247,7 +294,7 @@ const Presentation = () => (
                     alignItems="center"
                     marginTop="2em"
                 >
-                    <FlexBox flex="1" justifyContent="flex-start" alignItems="center" padding="0 2em">
+                    <ZoomGallery zoomScale={1.5} shrinkScale={0.75} duration={400} easing="ease">
                         <ImageEnhanced
                             src={roteadorAmarelo}
                             alt="Config Router A"
@@ -255,9 +302,7 @@ const Presentation = () => (
                             labelPosition="bottom"
                             maxWidth="80%"
                         />
-                    </FlexBox>
 
-                    <FlexBox flex="1" justifyContent="flex-end" alignItems="center" padding="0 2em">
                         <ImageEnhanced
                             src={roteadorVermelho}
                             alt="Config Router B"
@@ -265,7 +310,7 @@ const Presentation = () => (
                             labelPosition="bottom"
                             maxWidth="80%"
                         />
-                    </FlexBox>
+                    </ZoomGallery>
                 </FlexBox>
             </FlexBox>
         </Slide>
@@ -307,6 +352,142 @@ const Presentation = () => (
                 </ZoomGallery>
             </FlexBox>
         </Slide>
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                height="100%"
+                padding="2em"
+            >
+                <Heading fontSize="48px" color="primary" textAlign="center">
+                    Teste de Conexão DNS – Rede Vermelha
+                </Heading>
+                <Image
+                    src={testeDnsRedeVermelha}
+                    alt="Teste DNS Rede Vermelha"
+                    height="75%"
+                />
+                <Text fontSize="24px" color="secondary">
+                    Resolução de nome via servidor DNS na Rede Vermelha, confirmando resposta correta.
+                </Text>
+            </FlexBox>
+        </Slide>
+
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                height="100%"
+                padding="2em"
+            >
+                <Heading fontSize="48px" color="primary" textAlign="center">
+                    Teste HTTP – Rede Vermelha
+                </Heading>
+                <Image
+                    src={testeHttpRedeVermelha}
+                    alt="Teste HTTP Rede Vermelha"
+                    height="75%"
+                />
+            </FlexBox>
+        </Slide>
+
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="flex-start"
+                justifyContent="flex-start"
+                height="100%"
+            >
+                    <Heading
+                        fontSize="48px"
+                        color="primary"
+                        style={{ zIndex: 2 }}
+                    >
+                        Teste HTTP Local via Rede Vermelha
+                    </Heading>
+
+                {/* Dá uma margem maior antes das imagens */}
+                <FlexBox
+                    width="100%"
+                    height="60%"
+                    marginTop="1em"
+                    style={{ position: "relative" }}
+                >
+                    {/* Imagem grande esquerda: ajustei height para 100% e left para 10% */}
+                    <Image
+                        src={testeAcessoHttpLocal}
+                        alt="Teste HTTP local pela Rede Vermelha"
+                        style={{
+                            position: "absolute",
+                            bottom: 0,
+                            left: "10%",
+                            height: "110%",
+                        }}
+                    />
+
+                    {/* Imagem grande direita */}
+                    <Image
+                        src={natRoteadorAmarelo}
+                        alt="Configuração de NAT do roteador Amarelo"
+                        style={{
+                            position: "absolute",
+                            bottom: 0,
+                            right: "5%",
+                            height: "75%",
+                        }}
+                    />
+
+                    {/* Imagem menor central sobrepondo */}
+                    <Image
+                        src={ipRoteadorAmarelo}
+                        alt="IP do roteador Amarelo"
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            height: "40%",
+                            zIndex: 3,
+                        }}
+                    />
+                </FlexBox>
+            </FlexBox>
+        </Slide>
+
+        <Slide>
+            <FlexBox
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="flex-start"
+                height="100%"
+            >
+                <Heading fontSize="48px" color="primary" textAlign="center">
+                    Teste de Envio de Email – Rede Azul
+                </Heading>
+                <Image
+                    src={testeSmtpPop}
+                    alt="Teste SMTP/POP Rede Azul"
+                    height="75%"
+                    margin="2em 0"
+                />
+            </FlexBox>
+        </Slide>
+
+        <Slide>
+            <FlexBox
+                height="100%"
+                alignItems="center"
+                justifyContent="center"
+            >
+                <Heading fontSize="64px" color="primary" textAlign="center">
+                    Considerações Finais
+                </Heading>
+            </FlexBox>
+        </Slide>
+
+
     </Deck>
 );
 
