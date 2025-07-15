@@ -1,32 +1,25 @@
-name: Deploy Vite to GitHub Pages
-
+name: Build and Deploy
 on:
   push:
     branches:
       - main
+permissions:
+  contents: write
+
 
 jobs:
   build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v3
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          yarn
+          yarn build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build Vite app
-        run: yarn build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          # opcional: branch destino (padrão é gh-pages)
-          # publish_branch: gh-pages
+          folder: build # The folder the action should deploy.
