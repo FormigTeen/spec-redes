@@ -87,7 +87,7 @@ const Presentation = () => (
                     >
                         <ListItem margin="0.5em 0">Matheus S Freitas</ListItem>
                         <ListItem margin="0.5em 0">Otávio Augusto</ListItem>
-                        <ListItem margin="0.5em 0">Luz</ListItem>
+                        <ListItem margin="0.5em 0">Barbára Luz</ListItem>
                     </UnorderedList>
                 </FlexBox>
 
